@@ -2,21 +2,19 @@ openapi: 3.0.3
 info:
   title: Dokumen API Cloud Function - OpenAPI 3.0
   description: >-
-    Jelaskan disini apa saja yang perlu dijelaskan
-    termasuk informasi yang diperlukan untuk dinilai
-    term of service isi dari link repo dari swagger ini
+    Dokumentasi Matakuliah GIS (by ABDUL)
   termsOfService: https://github.com/jscroot/examples/tree/main/api/swagger
   contact:
-    email: awangga@gmail.com
+    email: kholiqnnabdul@gmail.com
   license:
     name: Peda Package
     url: https://pkg.go.dev/github.com/petapedia/peda
   version: 1.0.11
 externalDocs:
   description: Repo GCF
-  url: https://petapedia.github.io/gcf/
+  url: https://github.com/serbaevents/pasetobd/
 servers:
-  - url: https://asia-southeast2-awangga.cloudfunctions.net
+  - url: https://us-central1-backendserbaevents.cloudfunctions.net
 tags:
   - name: data
     description: Data Geo Spasial
@@ -27,7 +25,7 @@ tags:
     description: Auth to Access to API
     externalDocs:
       description: Deskripsi dan Kode Program
-      url: https://petapedia.github.io/gcf/post/
+      url: https://github.com/serbaevents/pasetobd/
   - name: user
     description: Get Token and Authorize
 paths:
@@ -39,15 +37,15 @@ paths:
       description: List Data Geospasial
       operationId: getGeoJSON
       responses:
-        '200':
+        "200":
           description: successful operation
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Peta'
-        '400':
+                  $ref: "#/components/schemas/Peta"
+        "400":
           description: Invalid status value
   /petapedia-post:
     post:
@@ -60,15 +58,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Auth'
+              $ref: "#/components/schemas/Auth"
       responses:
-        '200':
+        "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthResponse'
-        '405':
+                $ref: "#/components/schemas/AuthResponse"
+        "405":
           description: Invalid input
       security:
         - token:
@@ -84,9 +82,9 @@ components:
         geometry:
           type: object
           properties:
-            type: 
+            type:
               type: string
-            coordinates: 
+            coordinates:
               type: array
         properties:
           type: object
@@ -120,7 +118,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Auth'
+            $ref: "#/components/schemas/Auth"
     UserArray:
       description: List of user object
       content:
@@ -128,7 +126,7 @@ components:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/AuthResponse'
+              $ref: "#/components/schemas/AuthResponse"
   securitySchemes:
     token:
       type: apiKey
