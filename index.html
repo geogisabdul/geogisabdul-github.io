@@ -1,111 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
-    <title>Sign In</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
     <style>
-        /* Dark mode styles */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #1a202c;
-            }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: white;
+        font-family: Arial, sans-serif;
+        background-image: url(images/konserr.jpeg);
+        background-size: cover;
+      }
 
-            .dark\:from-gray-800 {
-                background-color: #2d3748;
-            }
+      .login-container {
+        background-color: #eb8d1a;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-            .dark\:to-transparent {
-                background-color: transparent;
-            }
+      .input-group {
+        margin-bottom: 20px;
+      }
 
-            .dark\:bg-gray-950 {
-                background-color: #1a202c;
-            }
+      .input-group input {
+        width: 300px;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 5px;
+      }
 
-            .dark\:text-white {
-                color: #ffffff;
-            }
+      .login-button {
+        background-color: #82664b;
+        color: white;
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
 
-            .dark\:text-gray-900 {
-                color: #2d3748;
-            }
-
-            .dark\:text-gray-600 {
-                color: #718096;
-            }
-
-            .dark\:placeholder-gray-300::placeholder {
-                color: #a0aec0;
-            }
-
-            .dark\:border-gray-700 {
-                border-color: #4a5568;
-            }
-
-            .dark\:hover\:text-blue-400:hover {
-                color: #63b3ed;
-            }
-
-            .dark\:hover\:underline:hover {
-                text-decoration: underline;
-            }
-
-            .dark\:border-red-500 {
-                border-color: #f56565;
-            }
-        }
+      .login-button:hover {
+        background-color: #c1c1c1;
+      }
     </style>
-</head>
+    <script src="sijs/cookie.js"></script>
+  </head>
 
-<body class="h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-950">
-    <div class="flex flex-col items-center justify-center p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg">
-        <h1 class="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Sign in to your account</h1>
-        <p class="text-sm text-gray-600 dark:text-gray-300 mb-8">Don't have an account? <a href="#"
-                class="text-blue-600 hover:text-blue-400 transition duration-200">Signup</a> for free</p>
-        <div class="space-y-4 w-full">
-            <input class="w-full bg-transparent text-gray-600 dark:text-white dark:placeholder-gray-300 border border-gray-300 dark:border-gray-700 rounded-md px-3 py-2 text-sm placeholder-gray-600 focus:outline-none focus:border-blue-400"
-                placeholder="Your Email" type="email" name="email" id="email" />
-            <input class="w-full bg-transparent text-gray-600 dark:text-white dark:placeholder-gray-300 border border-gray-300 dark:border-gray-700 rounded-md px-3 py-2 text-sm placeholder-gray-600 focus:outline-none focus:border-blue-400"
-                placeholder="Your Password" type="password" name="password" id="password" />
-        </div>
-        <button class="mt-6 w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 focus:bg-blue-700 transition duration-500 rounded-md text-white py-2"
-            id="signin-button">
-            Sign in
-        </button>
+  <body>
+    <div class="login-container">
+      
+      <div class="input-group">
+        <input type="text" placeholder="Username" id="username" />
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder="Password" id="password" />
+      </div>
+      <button type="submit" class="login-button" id="button" onclick="PostSignUp()">Sign In</button>
+      <br />
+      <label>
+       
     </div>
 
-    <script>
-        // Fungsi untuk mengirim data signin
-        function PostSignUp() {
-            // Dapatkan nilai dari input email dan password
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            
-            // Lakukan sesuatu dengan nilai email dan password (contoh: kirim ke server)
-            // ...
-            // Setelah mendapat balasan dari server, Anda bisa menangani respon di sini
-            // ...
-            // Setelah berhasil signin, atur cookie dengan nama "token" misalnya
-            // document.cookie = "token=your_token_value; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-            
-            // Contoh pengaturan cookie (harap sesuaikan dengan respons dari server)
-            if (email === "example@example.com" && password === "yourpassword") {
-                document.cookie = "token=your_token_value; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-                window.location.href = "dashboard.html";
-            } else {
-                // Jika signin gagal, tampilkan pesan kesalahan (contoh: dengan alert)
-                alert("Signin failed. Please check your email and password.");
-            }
-        }
+    <script type="module" src="./sijs/post.js"></script>
+    <script type="module">
+      // Nama cookie yang akan diperiksa
 
-        // Menambahkan event listener ke tombol "Sign in"
-        const signinButton = document.getElementById("signin-button");
-        signinButton.addEventListener("click", PostSignUp);
+      import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
+      const cookieName = "token";
+
+      // Periksa apakah cookie ada dengan menggunakan fungsi dari file cookieUtil.js
+      if (getCookie(cookieName)) {
+        // Jika cookie tidak ada, arahkan kembali ke halaman signin
+        window.location.href = "./dashboard.html";
+      }
     </script>
-</body>
 
+    <script src="sijs/main.js"></script>
+  </body>
 </html>
