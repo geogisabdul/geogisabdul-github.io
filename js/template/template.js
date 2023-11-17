@@ -3,6 +3,7 @@ export let urlPostGCF = "https://us-central1-gcpospasial.cloudfunctions.net/Post
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 export let tableTag = "tr";
 export let tableRowClass = "content is-small";
+export let token = "nizarabdul"
 export let cookie = getCookie("Login");
 export let tableTemplate = `
 <td>#NAME#</td>
